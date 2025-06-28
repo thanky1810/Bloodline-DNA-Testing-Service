@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
 
 <head>
     <meta charset="UTF-8">
@@ -13,58 +14,9 @@
 </head>
 
 <body>
-    <!-- Header Section -->
-    <header class="header">
-        <div class="header-left">
-            <a href="#" class="social-icon"><i class="fas fa-phone-alt"></i> </a>
-            <span class="phone-number">0902 520 536</span>
-        </div>
 
-        <!-- Log (Login & Register) with Icons and Avatar -->
-        <div class="Logn">
-            <div class="user-info">
-                <img src="/images/" alt="Avatar" class="avatar"> <!-- Avatar Image -->
-                <span class="user-name">John Doe</span> <!-- User Name -->
-            </div>
-            <div class="auth-links">
-                <a href="#" class="login-link"><i class="fas fa-sign-in-alt"></i> Log In</a> |
-                <a href="#" class="register-link"><i class="fas fa-user-plus"></i> Log Up</a>
-            </div>
-        </div>
-
-        <div class="header-right">
-            <!-- Sử dụng Font Awesome cho các icon mạng xã hội -->
-            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-        </div>
-    </header>
-
-    <!-- Navigation Bar -->
-    <div class="nav-bar">
-        <div class="header-center">
-            <a href="/src/main/resources/templates/common/Home.html">
-                <img src="/src/main/resources/static/images/logo.jpg" alt="GenFamily Logo" class="logo-img">
-            </a>
-            <span class="logo">GenFamily</span>
-        </div>
-
-        <!-- Hamburger Menu Button -->
-        <div class="hamburger" id="hamburger">
-            <i class="fas fa-bars"></i>
-        </div>
-
-        <!-- Navigation Links -->
-        <ul class="nav-list" id="navList">
-            <li><a href="/src/main/resources/templates/common/Home.html">Trang Chủ</a></li>
-            <li><a href="/src/main/resources/templates/common/GioiThieu.html">Giới Thiệu</a></li>
-            <li><a href="/src/main/resources/templates/common/DichVu.html">Dịch Vụ</a></li>
-            <li><a href="/src/main/resources/templates/common/HuongDan.html">Hướng Dẫn</a></li>
-            <li><a href="/src/main/resources/templates/common/Lienhe.html">Liên hệ</a></li>
-            <li><a href="/src/main/resources/templates/common/Blog.html">Blog</a></li>
-        </ul>
-    </div>
-
+    <!-- Include header -->
+    <div th:replace="common/header :: header"></div>
 
     <main>
         <div class="header"></div>
@@ -75,7 +27,8 @@
         </div>
 
         <div class="sample-section">
-            <p>Quý khách hàng vui lòng để lại thông tin và lời nhắn, bộ phận tư vấn sẽ liên hệ lại ngay sau khi nhận được thông tin. Trân trọng cảm ơn quý khách hàng đã gửi thông tin!!</p>
+            <p>Quý khách hàng vui lòng để lại thông tin và lời nhắn, bộ phận tư vấn sẽ liên hệ lại ngay sau khi nhận
+                được thông tin. Trân trọng cảm ơn quý khách hàng đã gửi thông tin!!</p>
         </div>
 
         <div class="booking-form">
@@ -154,7 +107,8 @@
                 </div>
 
                 <!-- Thông báo bảo mật -->
-                <p class="disclaimer">“Mọi thông tin đầu vào đều được chúng tôi mã hóa để đảm bảo tính bảo mật tốt nhất cho mọi người”</p>
+                <p class="disclaimer">“Mọi thông tin đầu vào đều được chúng tôi mã hóa để đảm bảo tính bảo mật tốt nhất
+                    cho mọi người”</p>
             </form>
         </div>
     </main>
