@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenFamily</title>
+    <link rel="stylesheet" href="/src/main/resources/static/css/All_Sum.css">
+
+    <!-- Thêm Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="shortcut icon" href="/src/main/resources/static/images/logo.jpg" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-left">
+            <a href="#" class="social-icon"><i class="fas fa-phone-alt"></i> </a>
+            <span class="phone-number">0902 520 536</span>
+        </div>
+
+        <!-- Log (Login & Register) with Icons and Avatar -->
+        <div class="Logn">
+            <div class="user-info">
+                <img src="/images/" alt="Avatar" class="avatar"> <!-- Avatar Image -->
+                <span class="user-name">John Doe</span> <!-- User Name -->
+            </div>
+            <div class="auth-links">
+                <a href="#" class="login-link"><i class="fas fa-sign-in-alt"></i> Log In</a> |
+                <a href="#" class="register-link"><i class="fas fa-user-plus"></i> Log Up</a>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <!-- Sử dụng Font Awesome cho các icon mạng xã hội -->
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <div class="header-center">
+            <a href="/src/main/resources/templates/common/Home.html">
+                <img src="/src/main/resources/static/images/logo.jpg" alt="GenFamily Logo" class="logo-img">
+            </a>
+            <span class="logo">GenFamily</span>
+        </div>
+
+        <!-- Hamburger Menu Button -->
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="nav-list" id="navList">
+            <li><a href="/src/main/resources/templates/common/Home.html">Trang Chủ</a></li>
+            <li><a href="/src/main/resources/templates/common/GioiThieu.html">Giới Thiệu</a></li>
+            <li><a href="/src/main/resources/templates/common/DichVu.html">Dịch Vụ</a></li>
+            <li><a href="/src/main/resources/templates/common/HuongDan.html">Hướng Dẫn</a></li>
+            <li><a href="/src/main/resources/templates/common/Lienhe.html">Liên hệ</a></li>
+            <li><a href="/src/main/resources/templates/common/Blog.html">Blog</a></li>
+        </ul>
+    </div>
+
+
+    <main>
+        <div class="header"></div>
+        <!-- Về Chúng Tôi -->
+        <div class="exp1-section">
+            <h1>LIÊN HỆ</h1>
+            <h1>ĐẶT LỊCH XÉT NGHIỆM ADN</h1>
+        </div>
+
+        <div class="sample-section">
+            <p>Quý khách hàng vui lòng để lại thông tin và lời nhắn, bộ phận tư vấn sẽ liên hệ lại ngay sau khi nhận được thông tin. Trân trọng cảm ơn quý khách hàng đã gửi thông tin!!</p>
+        </div>
+
+        <div class="booking-form">
+            <h2>LIÊN HỆ ĐẶT LỊCH XÉT NGHIỆM</h2>
+            <p>Quý khách hàng vui lòng điền đầy đủ thông tin</p>
+            <form action="#" method="post">
+                <!-- Họ và tên -->
+                <div class="form-row">
+                    <label for="name">Họ và tên</label>
+                    <input type="text" id="name" name="name" placeholder="Nhập họ và tên" required>
+                </div>
+
+                <!-- Số điện thoại -->
+                <div class="form-row">
+                    <label for="phone">Số điện thoại</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
+                </div>
+
+                <!-- Địa chỉ -->
+                <div class="form-row">
+                    <label for="address">Địa chỉ</label>
+                    <input type="text" id="address" name="address" placeholder="Nhập địa chỉ" required>
+                </div>
+
+                <!-- Email -->
+                <div class="form-row">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Nhập email" required>
+                </div>
+
+                <!-- Chọn hình thức thu mẫu -->
+                <div class="form-row1">
+                    <label>Chọn hình thức thu mẫu</label>
+                    <div class="radio-buttons">
+                        <label><input type="radio" name="sample-type" value="center"> Tại trung tâm</label>
+                        <label><input type="radio" name="sample-type" value="home"> Thu mẫu tại nhà</label>
+                        <label><input type="radio" name="sample-type" value="both"> Tự thu và gửi mẫu</label>
+                    </div>
+                </div>
+
+                <!-- Thời gian đặt lịch -->
+                <div class="form-row">
+                    <label for="appointment-time">Chọn thời gian đặt lịch</label>
+                    <input type="datetime-local" id="appointment-time" name="appointment-time" required>
+                </div>
+
+                <!-- Địa điểm xét nghiệm -->
+                <div class="form-row">
+                    <label for="location">Chọn địa điểm xét nghiệm</label>
+                    <select id="location" name="location" required>
+                        <option value="">-Vui lòng chọn-</option>
+                        <option value="clinic1">Phòng khám A</option>
+                        <option value="clinic2">Phòng khám B</option>
+                    </select>
+                </div>
+
+                <!-- Loại xét nghiệm -->
+                <div class="form-row">
+                    <label for="test-type">Chọn loại xét nghiệm</label>
+                    <select id="test-type" name="test-type" required>
+                        <option value="">-Vui lòng chọn-</option>
+                        <option value="test1">Xét nghiệm 1</option>
+                        <option value="test2">Xét nghiệm 2</option>
+                    </select>
+                </div>
+
+                <!-- Ghi chú -->
+                <div class="form-row">
+                    <label for="note">Nội dung ghi chú (nếu có)</label>
+                    <textarea id="note" name="note" rows="4" placeholder="Nhập nội dung cần lưu ý"></textarea>
+                </div>
+
+                <!-- Nút gửi -->
+                <div class="form-row">
+                    <button type="submit" class="submit-btn">Gửi yêu cầu</button>
+                </div>
+
+                <!-- Thông báo bảo mật -->
+                <p class="disclaimer">“Mọi thông tin đầu vào đều được chúng tôi mã hóa để đảm bảo tính bảo mật tốt nhất cho mọi người”</p>
+            </form>
+        </div>
+    </main>
+
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-left">
+            <img src="/src/main/resources/static/images/Logo1.jpg" alt="GenFamily Logo" />
+            <p><strong>CÔNG TY TNHH XÉT NGHIỆM ADN</strong></p>
+            <ul>
+                <li><i class="fas fa-map-marker-alt"></i> <a
+                        href="https://maps.google.com?q=34 Đường D24, KDC Hồng Loan, P. Hưng Thạnh, Cái Răng, Cần Thơ">Trụ
+                        sở: 34 Đường D24, KDC Hồng Loan, P. Hưng Thạnh, Cái Răng, Cần Thơ</a></li>
+                <li><i class="fas fa-map-marker-alt"></i> <a
+                        href="https://maps.google.com?q=183 Trường Chinh, Phường Khương Mai, Quận Thanh Xuân, Hà Nội">Hà
+                        Nội: 183 Trường Chinh, Phường Khương Mai, Quận Thanh Xuân, Hà Nội</a></li>
+                <li><i class="fas fa-map-marker-alt"></i> <a
+                        href="https://maps.google.com?q=99 Đ. Cộng Hòa, Phường 4, Tân Bình, Thành phố Hồ Chí Minh">HCM:
+                        99 Đ. Cộng Hòa, Phường 4, Tân Bình, Thành phố Hồ Chí Minh</a></li>
+                <li><i class="fas fa-map-marker-alt"></i> <a
+                        href="https://maps.google.com?q=6 Nguyễn Mậu Tài, Hoà Xuân, Cẩm Lệ, Đà Nẵng">Đà Nẵng: Tầng 1, 6
+                        Nguyễn Mậu Tài, Hoà Xuân, Cẩm Lệ, Đà Nẵng</a></li>
+                <li><i class="fas fa-phone-alt"></i> <a href="tel:+84902250536">Điện thoại: 0902.250.536 (7:30 - 17:30
+                        từ T2 đến CN)</a></li>
+                <li><i class="fas fa-envelope"></i> <a href="mailto:info@trungtamxetnghiem.vn">Email:
+                        info@trungtamxetnghiem.vn</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-right">
+            <h3>CHỨNG CHỈ</h3>
+            <img src="/src/main/resources/static/images/Chungchi.jpg" alt="DMCA Protected" />
+        </div>
+
+        <div class="footer-middle">
+            <div class="footer-middle1">
+                <p><strong>VỀ GENFAMILY</strong></p>
+                <ul>
+                    <li><i class="fas fa-info-circle"></i> <a href="#">Giới thiệu về GenFamily</a></li>
+                    <li><i class="fas fa-users"></i> <a href="#">Nhân viên & Tuyển dụng</a></li>
+                    <li><i class="fas fa-building"></i> <a href="#">Văn phòng quốc tế</a></li>
+                    <li><i class="fas fa-phone"></i> <a href="#">Liên hệ</a></li>
+                    <li><i class="fas fa-newspaper"></i> <a href="#">Tin tức & Sự kiện</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-middle2">
+                <p><strong>HỘ TRỢ KHÁCH HÀNG</strong></p>
+                <ul>
+                    <li><i class="fas fa-file-alt"></i> <a href="#">Thủ tục xét nghiệm</a></li>
+                    <li><i class="fas fa-book"></i> <a href="#">Hướng dẫn thu mẫu</a></li>
+                    <li><i class="fas fa-credit-card"></i> <a href="#">Quy định thanh toán</a></li>
+                    <li><i class="fas fa-gift"></i> <a href="#">Tin khuyến mãi</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-middle3">
+                <p><strong>CHÍNH SÁCH & ĐIỀU KHOẢN</strong></p>
+                <ul>
+                    <li><i class="fas fa-lock"></i> <a href="#">Chính sách bảo mật</a></li>
+                    <li><i class="fas fa-file-contract"></i> <a href="#">Điều khoản & Điều kiện</a></li>
+                    <li><i class="fas fa-cogs"></i> <a href="#">Chính sách cung cấp dịch vụ</a></li>
+                    <li><i class="fas fa-user-shield"></i> <a href="#">Chính sách bảo vệ dữ liệu khách hàng</a></li>
+                    <li><i class="fas fa-book-open"></i> <a href="#">Cách chúng tôi xuất bản nội dung đánh giá</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                Các thông tin trên GENFAMILY chỉ dành cho mục đích tham khảo, tra cứu và không thay thế cho việc chẩn
+                đoán hoặc điều trị y khoa. Cần tuyệt đối tuân theo hướng dẫn của Bác sĩ và Nhân viên y tế.
+            </p>
+            <p>Copyright © 2022 - 2024 Công ty TNHH Xét Nghiệm ADN.</p>
+            <p>Được thiết kế web bởi TBT Solutions</p>
+        </div>
+    </footer>
+
+    <script src="/src/main/resources/static/js/All_Sum.js"></script>
+</body>
+
+</html>
