@@ -12,15 +12,28 @@ public class HomeController {
         return "common/home"; // tương ứng với templates/home.html
     }
 
-    // Trang chủ của user
-    @GetMapping("/user/home")
-    public String showUserHome() {
-        return "user/home"; // tương ứng templates/user/home.html
+    @GetMapping("/common/Gioithieu")
+    public String showGioiThieuPage() {
+        return "common/Gioithieu";
     }
 
-    // Trang chủ của admin
-    @GetMapping("/admin/home")
-    public String showAdminHome() {
-        return "admin/home"; // tương ứng templates/admin/home.html
+    @GetMapping("/common/Dichvu")
+    public String showDichVuPage() {
+        return "common/Dichvu";
+    }
+
+    @GetMapping("/common/Huongdan")
+    public String showHuongDanPage() {
+        return "common/Huongdan";
+    }
+
+    @GetMapping("/common/Lienhe")
+    public String showHLienHePage() {
+        return "common/Lienhe";
+    }
+
+    @GetMapping("/common/Blog")
+    public String showBlogPage() {
+        return "common/Blog";
     }
 }

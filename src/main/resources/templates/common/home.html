@@ -1,71 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GenFamily</title>
-    <link rel="stylesheet" href="/src/main/resources/static/css/Home.css">
+    <link rel="stylesheet" href="/css/Home.css">
 
     <!-- Thêm Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="shortcut icon" href="/src/main/resources/static/images/logo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/logo.jpg" type="image/x-icon">
 </head>
 
 <body>
-    <!-- Header Section -->
-    <header class="header">
-        <div class="header-left">
-            <a href="#" class="social-icon"><i class="fas fa-phone-alt"></i> </a>
-            <span class="phone-number">0902 520 536</span>
-        </div>
-
-        <!-- Log (Login & Register) with Icons and Avatar -->
-        <div class="Logn">
-            <div class="user-info">
-                <img src="/images/" alt="Avatar" class="avatar"> <!-- Avatar Image -->
-                <span class="user-name">John Doe</span> <!-- User Name -->
-            </div>
-            <div class="auth-links">
-                <a href="#" class="login-link"><i class="fas fa-sign-in-alt"></i> Log In</a> |
-                <a href="#" class="register-link"><i class="fas fa-user-plus"></i> Log Up</a>
-            </div>
-        </div>
-
-        <div class="header-right">
-            <!-- Sử dụng Font Awesome cho các icon mạng xã hội -->
-            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-        </div>
-    </header>
-
-    <!-- Navigation Bar -->
-    <div class="nav-bar">
-        <div class="header-center">
-            <a href="/src/main/resources/templates/common/Home.html">
-                <img src="/src/main/resources/static/images/logo.jpg" alt="GenFamily Logo" class="logo-img">
-            </a>
-            <span class="logo">GenFamily</span>
-        </div>
-
-        <!-- Hamburger Menu Button -->
-        <div class="hamburger" id="hamburger">
-            <i class="fas fa-bars"></i>
-        </div>
-
-        <!-- Navigation Links -->
-        <ul class="nav-list" id="navList">
-            <li><a href="/src/main/resources/templates/common/Home.html">Trang Chủ</a></li>
-            <li><a href="/src/main/resources/templates/common/GioiThieu.html">Giới Thiệu</a></li>
-            <li><a href="/src/main/resources/templates/common/DichVu.html">Dịch Vụ</a></li>
-            <li><a href="/src/main/resources/templates/common/HuongDan.html">Hướng Dẫn</a></li>
-            <li><a href="/src/main/resources/templates/common/Lienhe.html">Liên hệ</a></li>
-            <li><a href="/src/main/resources/templates/common/Blog.html">Blog</a></li>
-        </ul>
-    </div>
 
 
+    <!-- Include header -->
+    <div th:replace="common/header :: header"></div>
 
 
     <main>
@@ -96,7 +47,7 @@
                 <li>Là đơn vị DUY NHẤT trên thị trường làm xét nghiệm lên 2 hoàn toàn MIỄN PHÍ.</li>
             </ul>
             <!-- Team Image -->
-            <img class="team-image" src="/src/main/resources/static/images/hinh2.jpg" alt="hinh2">
+            <img class="team-image" src="/images/hinh2.jpg" alt="hinh2">
         </div>
 
         <!-- Bảng giá -->
@@ -198,13 +149,13 @@
             <h4 class="sub-label gray">(MẪU THÔNG THƯỜNG)</h4>
             <h3 class="sub-title">Áp dụng cho mục đích Dân sự / Pháp Lý.</h3>
             <div class="image-block">
-                <img src="/src/main/resources/static/images/hinh3.jpg" alt="hinh3">
+                <img src="/images/hinh3.jpg" alt="hinh3">
             </div>
 
             <h4 class="sub-label gray">(MẪU ĐẶC BIỆT)</h4>
             <h3 class="sub-title">Áp dụng cho mục đích Dân sự.</h3>
             <div class="image-block">
-                <img src="/src/main/resources/static/images/hinh4.jpg" alt="hinh4">
+                <img src="/images/hinh4.jpg" alt="hinh4">
             </div>
         </div>
 
@@ -265,7 +216,7 @@
         </div>
 
         <div class="image-block">
-            <img src="/src/main/resources/static/images/hinh5.jpg" alt="hinh5">
+            <img src="/images/hinh5.jpg" alt="hinh5">
         </div>
 
     </main>
@@ -284,7 +235,7 @@
     <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-left">
-            <img src="/src/main/resources/static/images/Logo1.jpg" alt="GenFamily Logo" />
+            <img src="/images/Logo1.jpg" alt="GenFamily Logo" />
             <p><strong>CÔNG TY TNHH XÉT NGHIỆM ADN</strong></p>
             <ul>
                 <li><i class="fas fa-map-marker-alt"></i> <a
@@ -308,7 +259,7 @@
 
         <div class="footer-right">
             <h3>CHỨNG CHỈ</h3>
-            <img src="/src/main/resources/static/images/Chungchi.jpg" alt="DMCA Protected" />
+            <img src="/images/Chungchi.jpg" alt="DMCA Protected" />
         </div>
 
         <div class="footer-middle">
@@ -355,7 +306,7 @@
         </div>
     </footer>
 
-    <script src="/src/main/resources/static/js/Home.js"></script>
+    <script src="/js/Home.js"></script>
 </body>
 
 </html>
