@@ -347,7 +347,7 @@ body {
 /* ================= SECTION: Hero Image ================= */
 .exp-section {
     position: relative;
-    background: url('/src/main/resources/static/images/hinh1.jpg') center/cover no-repeat;
+    background: url('/images/hinh1.jpg') center/cover no-repeat;
     height: 100vh;
     color: #235C8A;
     overflow: hidden;
