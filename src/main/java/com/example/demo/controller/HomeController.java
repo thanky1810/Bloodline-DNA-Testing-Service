@@ -36,4 +36,8 @@ public class HomeController {
     public String showBlogPage() {
         return "common/Blog";
     }
+    @GetMapping("/home.html")
+    public String homePage() {
+        return "common/home";
+    }
 }

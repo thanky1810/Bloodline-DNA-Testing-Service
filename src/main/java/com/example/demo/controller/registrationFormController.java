@@ -59,7 +59,7 @@ public class registrationFormController {
 
         repository.save(form);
 
-       return "redirect:/Home.html?success=true"; // Đảm bảo đường dẫn này đúng với cấu hình của bạn
+       return "redirect:/home.html?success=true"; // Đảm bảo đường dẫn này đúng với cấu hình của bạn
     }
 
     @GetMapping("/success")
