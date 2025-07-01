@@ -19,3 +19,21 @@ document.addEventListener("DOMContentLoaded", function () {
     else if (radioHome.checked) showSection("home");
     else if (radioSelf.checked) showSection("self");
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    const radios = document.querySelectorAll("input[name='sample-type']");
+
+    function updateAction() {
+        const selected = document.querySelector("input[name='sample-type']:checked").value;
+        if (selected === "center") form.action = "/center/submitForm";
+        else if (selected === "home") form.action = "/home/submitForm";
+        else if (selected === "self") form.action = "/self/submitForm";
+    }
+
+    radios.forEach(radio => {
+        radio.addEventListener("change", updateAction);
+    });
+
+        // Đặt mặc định ngay khi load
+    updateAction();
+});
