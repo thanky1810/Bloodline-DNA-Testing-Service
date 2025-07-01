@@ -13,31 +13,44 @@ hamburger.addEventListener('click', () => {
 
 
 
-// Function to add the feedback to a list (just a mock function for now)
-function addFeedback() {
-    const feedbackContent = document.getElementById('feedback-content').value;
-    if (feedbackContent.trim() === "") {
-        alert("Vui lòng nhập đánh giá.");
-        return;
+// Feedback logic
+let feedbacks = [];
+
+function renderFeedbacks() {
+    const list = document.getElementById('feedback-items');
+    if (feedbacks.length === 0) {
+        list.innerHTML = '<p style="text-align:center; color:#aaa;">Chưa có đánh giá nào.</p>';
+    } else {
+        list.innerHTML = feedbacks.map(fb => `<div>${fb}</div>`).join('');
     }
-    alert("Đánh giá đã được thêm!");
-    // You can replace the alert with an actual logic to save the feedback
-    document.getElementById('feedback-content').value = '';  // Clear the textarea
-    document.getElementById('submit-btn').disabled = true;  // Disable the submit button again
 }
 
-// Function to submit the feedback (mock function for now)
+// Khi bấm "Thêm đánh giá" thì mới cho nhập
+function enableFeedbackInput() {
+    const textarea = document.getElementById('feedback-content');
+    textarea.disabled = false;
+    textarea.focus();
+    document.getElementById('submit-btn').disabled = !textarea.value.trim();
+}
+
+// Khi nhập thì kiểm tra để bật/tắt nút gửi
+document.getElementById('feedback-content').addEventListener('input', function() {
+    document.getElementById('submit-btn').disabled = !this.value.trim();
+});
+
 function submitFeedback() {
-    const feedbackContent = document.getElementById('feedback-content').value;
-    if (feedbackContent.trim() === "") {
+    const textarea = document.getElementById('feedback-content');
+    const content = textarea.value.trim();
+    if (content) {
+        feedbacks.push(content);
+        renderFeedbacks();
+        alert("Đánh giá đã được gửi!");
+        textarea.value = '';
+        textarea.disabled = true;
+        document.getElementById('submit-btn').disabled = true;
+    } else {
         alert("Vui lòng nhập nội dung đánh giá.");
-        return;
     }
-    alert("Đánh giá đã được gửi!");
-    // You can replace the alert with an actual function to send the feedback to a server
-    document.getElementById('feedback-content').value = '';  // Clear the textarea
-    document.getElementById('submit-btn').disabled = true;  // Disable the submit button again
 }
 
-
-
+renderFeedbacks();

@@ -576,59 +576,135 @@ body {
     text-align: center;
 }
 
-/* Feedback Form */
-.feedback-form {
+/* Khung lớn hiển thị đánh giá */
+.feedback-display {
+    background: #f5fafb;
+    border-radius: 16px;
+    padding: 32px 16px;
+    margin-bottom: 32px;
+    min-height: 150px;
+    border:  1.5px solid #1d5c91; /* Thêm viền nhỏ màu xanh đậm */;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Mỗi đánh giá */
+.feedback-items > div {
+    background: #fff;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 8px #eee;
+    color: #333;
+    font-size: 18px;
+}
+
+/* Khung nhập nhỏ */
+.feedback-input-row {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    align-items: flex-end;
+    gap: 12px;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
-.feedback-form textarea {
-    width: 100%;
-    padding: 15px;
-    font-size: 1rem;
-    color: #333;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    resize: none;
-    background-color: #f7f7f7;
-    transition: border-color 0.3s ease;
-}
-
-.feedback-form textarea:focus {
-    outline: none;
-    border-color: #0056b3;
-}
-
-/* Button Styles */
-.buttons {
-    display: flex;
-    justify-content: space-between;
-}
-
-.add-feedback,
-.submit-feedback {
-    background-color: #0056b3;
-    color: white;
+.feedback-input {
+    background: #f5fafb;
+    border-radius: 8px;
     border: none;
-    padding: 12px 20px;
-    font-size: 1rem;
-    border-radius: 10px;
+    padding: 16px;
+    width: 100%;
+    min-height: 48px;
+    font-size: 17px;
+    box-sizing: border-box;
+    margin-bottom: 0;
+    resize: none;
+    text-align: center;
+}
+
+.submit-feedback {
+    background: #1d5c91;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 36px;
+    font-size: 17px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 0;
+    transition: background 0.2s;
 }
-
-.add-feedback:hover,
-.submit-feedback:hover {
-    background-color: #004494;
-    transform: scale(1.05);
-}
-
-.add-feedback:disabled,
 .submit-feedback:disabled {
-    background-color: #cccccc;
+    background: #bfc9d1;
     cursor: not-allowed;
 }
+.add-feedback {
+    background: #1d5c91;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 36px;
+    font-size: 17px;
+    cursor: pointer;
+    margin: 24px 0 0 0;
+    transition: background 0.2s;
+}
+.add-feedback:disabled {
+    background: #bfc9d1;
+    cursor: not-allowed;
+}
+.feedback-input-row-horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: stretch; /* hoặc flex-start */
+    gap: 24px;
+    max-width: 900px;
+    width: 100%;
+    margin: 24px auto 0 auto;
+}
+
+.feedback-input-row-horizontal .add-feedback,
+.feedback-input-row-horizontal .submit-feedback {
+    flex: 0 0 180px; /* Nút cố định 180px */
+    min-width: 120px;
+    max-width: 200px;
+    margin: 0;
+}
+/* Đảm bảo nút Thêm đánh giá không xuống dòng */
+.feedback-input-row-horizontal .add-feedback {
+    white-space: nowrap;
+    /* Có thể điều chỉnh lại padding nếu muốn nút gọn hơn */
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+}
+.feedback-input-row-horizontal .feedback-input {
+    flex: 1 1 0;
+    min-width: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 17px;
+    background: #f5fafb;
+    border-radius: 8px;
+    border: none;
+    padding: 16px;
+    box-sizing: border-box;
+    resize: none;
+    height: 48px;
+}
+@media (max-width: 900px) {
+    .feedback-input-row-horizontal {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+    .feedback-input-row-horizontal .feedback-input {
+        min-width: 0;
+        max-width: 100%;
+    }
+}
+
 
 /* ================= Booking form: Liên hệ ================= */
 .booking-form {
