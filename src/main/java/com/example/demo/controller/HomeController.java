@@ -36,8 +36,34 @@ public class HomeController {
     public String showBlogPage() {
         return "common/Blog";
     }
+
     @GetMapping("/home.html")
     public String homePage() {
         return "common/home";
+    }
+
+    @GetMapping("/common/Blog1")
+    public String blog1Page() {
+        return "common/Blog1";
+    }
+
+    @GetMapping("/common/Blog2")
+    public String blog2Page() {
+        return "common/Blog2";
+    }
+
+    @GetMapping("/common/Blog3")
+    public String blog3Page() {
+        return "common/Blog3";
+    }
+
+    @GetMapping("/common/Blog4")
+    public String blog4Page() {
+        return "common/Blog4";
+    }
+
+    @GetMapping("/common/Datlich")
+    public String DatlichPage() {
+        return "common/Datlich";
     }
 }
