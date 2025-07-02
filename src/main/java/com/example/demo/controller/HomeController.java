@@ -62,8 +62,4 @@ public class HomeController {
         return "common/Blog4";
     }
 
-    @GetMapping("/common/Datlich")
-    public String DatlichPage() {
-        return "common/Datlich";
-    }
 }
