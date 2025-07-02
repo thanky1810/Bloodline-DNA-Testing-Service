@@ -34,6 +34,21 @@ document.addEventListener("DOMContentLoaded", function () {
         radio.addEventListener("change", updateAction);
     });
 
-        // Đặt mặc định ngay khi load
+    // Đặt mặc định ngay khi load
     updateAction();
 });
+
+
+function closePopup() {
+    const overlay = document.getElementById("popupOverlay");
+    if (overlay) {
+        overlay.style.display = "none";
+    }
+}
+
+window.onload = function () {
+    const overlay = document.getElementById("popupOverlay");
+    if (overlay) {
+        setTimeout(() => overlay.style.display = "none", 5000);
+    }
+}
