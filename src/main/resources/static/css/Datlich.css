@@ -6,10 +6,117 @@
 }
 
 .box {
-  width: 1200gitpx;
+  width: 1200px;
   height: 500px;
   background-color: #4caf50;
   color: white;
   text-align: center;
   line-height: 100px;
+}
+
+.booking-box {
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  gap: 30px;
+}
+
+.left-panel {
+  flex: 1;
+  min-width: 300px;
+}
+
+.right-panel {
+  flex: 1;
+  min-width: 300px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.time-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.time-btn {
+  padding: 8px 12px;
+  background-color: #eee;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.time-btn:hover {
+  background-color: #ccc;
+}
+
+.date-picker {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.date-toggle {
+  background: none;
+  border: none;
+  color: #2a6ebb;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.date-toggle i {
+  margin-left: 5px;
+}
+
+.date-list {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 0 0;
+  width: 150px;
+  z-index: 999;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.date-list li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.date-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.actived {
+  opacity: 0.8;
+  cursor: auto;
+  pointer-events: none;
+  background-color: #ccc;
 }
