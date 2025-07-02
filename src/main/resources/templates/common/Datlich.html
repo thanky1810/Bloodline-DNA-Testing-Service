@@ -20,7 +20,67 @@
 
     <main>
         <div id="container">
-            <div class="box">Centered Box</div>
+            <div class="booking-box">
+                <!-- Bên trái: Form đăng ký -->
+                <div class="left-panel">
+                    <h2>Đăng ký khám</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Họ và tên</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Số điện thoại</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Loại dịch vụ</label>
+                            <select id="service" name="service">
+                                <option value="">-- Chọn dịch vụ --</option>
+                                <option value="xet-nghiem">Xét nghiệm</option>
+                                <option value="kham-tong-quat">Khám tổng quát</option>
+                                <option value="tu-van">Tư vấn sức khỏe</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Địa chỉ</label>
+                            <input type="text" id="address" name="address">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Bên phải: lịch khám -->
+                <div class="right-panel">
+                    <div class="date-picker">
+                        <button class="date-toggle" onclick="toggleDateList()">
+                            Hôm nay - 2/7 <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <ul class="date-list" id="dateList">
+                            <li onclick="selectDate(this)">Hôm nay - 2/7</li>
+                            <li onclick="selectDate(this)">Thứ 4 - 3/7</li>
+                            <li onclick="selectDate(this)">Thứ 5 - 4/7</li>
+                            <li onclick="selectDate(this)">Thứ 6 - 5/7</li>
+                        </ul>
+                    </div>
+                    <h4><i class="fas fa-calendar-alt"></i> LỊCH KHÁM</h4>
+                    <div class="time-slots">
+                        <button class="time-btn actived">08:00 - 08:30</button>
+                        <button class="time-btn">08:30 - 09:00</button>
+                        <button class="time-btn">09:00 - 09:30</button>
+                        <button class="time-btn">09:30 - 10:00</button>
+                        <button class="time-btn">10:00 - 10:30</button>
+                        <button class="time-btn">10:30 - 11:00</button>
+                        <button class="time-btn">11:00 - 11:30</button>
+                        <button class="time-btn">13:30 - 14:00</button>
+                        <button class="time-btn">14:00 - 14:30</button>
+                        <button class="time-btn">14:30 - 15:00</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -28,6 +88,8 @@
 
 
     <script src="/js/All_Sum.js"></script>
+    <script src="/js/Datlich.js"></script>
+
 </body>
 
 </html>
