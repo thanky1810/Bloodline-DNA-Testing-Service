@@ -25,8 +25,12 @@ public class CenterAppointmentController {
 
     @PostMapping("/submitForm")
     public String submitForm(@ModelAttribute CenterAppointment appointment, Model model) {
-        repository.save(appointment);
-        model.addAttribute("message", "Đặt lịch tại trung tâm thành công!");
+        try {
+            repository.save(appointment);
+            model.addAttribute("message", "Đặt lịch tại trung tâm thành công!");
+        } catch (Exception e) {
+            model.addAttribute("message", "Đặt lịch thất bại. Vui lòng thử lại sau!");
+        }
         model.addAttribute("appointment", new CenterAppointment());
         return "common/Lienhe";
     }
