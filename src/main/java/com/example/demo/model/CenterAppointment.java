@@ -5,6 +5,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+
 @Entity
 @Table(name = "Trungtam")
 public class CenterAppointment {
@@ -12,7 +13,7 @@ public class CenterAppointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String fullName;
+    private String name;
     private String phone;
     private String address;
     private String email;
@@ -23,11 +24,11 @@ public class CenterAppointment {
     private String doctor;
 
     // Getters and Setters
-    public String getFullName() {
-        return fullName;
+    public String getName() {
+        return name;
     }
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setName(String name) {
+        this.name = name;
     }
     public String getPhone() {
         return phone;
