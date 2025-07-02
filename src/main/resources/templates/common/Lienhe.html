@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,16 @@
 <body>
     <div th:replace="common/header :: header"></div>
 
+    <div id="popupOverlay" class="popup-overlay" th:if="${message}">
+        <div class="popup">
+            <div class="popup-content" th:classappend="${messageType == 'error'} ? ' error'">
+                <span class="close-btn" onclick="closePopup()">×</span>
+                <h2 th:text="${messageType == 'error'} ? 'Lỗi' : 'Thông báo'"></h2>
+                <p th:text="${message}"></p>
+            </div>
+        </div>
+    </div>
+
     <main>
         <div class="header"></div>
         <!-- Về Chúng Tôi -->
@@ -23,19 +34,22 @@
         </div>
 
         <div class="sample-section">
-            <p>Quý khách hàng vui lòng để lại thông tin và lời nhắn, bộ phận tư vấn sẽ liên hệ lại ngay sau khi nhận được thông tin. Trân trọng cảm ơn quý khách hàng đã gửi thông tin!!</p>
+            <p>Quý khách hàng vui lòng để lại thông tin và lời nhắn, bộ phận tư vấn sẽ liên hệ lại ngay sau khi nhận
+                được thông tin. Trân trọng cảm ơn quý khách hàng đã gửi thông tin!!</p>
         </div>
 
         <div class="booking-form">
             <h2>LIÊN HỆ ĐẶT LỊCH XÉT NGHIỆM</h2>
             <p>Quý khách hàng vui lòng điền đầy đủ thông tin</p>
 
-            <form action="/submitForm" method="post">
+
+
+            <form action="/center/submitForm" method="post">
 
                 <!-- Thông tin chung -->
                 <div class="form-row">
                     <label for="name">Họ và tên</label>
-                    <input type="text" id="name" name="name" placeholder="Nhập họ và tên" required>
+                    <input type="text" id="name" name="fullName" placeholder="Nhập họ và tên" required>
                 </div>
 
                 <div class="form-row">
@@ -57,17 +71,20 @@
                 <div class="form-row1">
                     <label>Chọn hình thức thu mẫu</label>
                     <div class="radio-buttons">
-                        <label><input type="radio" id="radio-center" name="sample-type" value="center" checked> Tại trung tâm</label>
-                        <label><input type="radio" id="radio-home" name="sample-type" value="home"> Thu mẫu tại nhà</label>
-                        <label><input type="radio" id="radio-self" name="sample-type" value="self"> Tự thu và gửi mẫu</label>
+                        <label><input type="radio" id="radio-center" name="sampleType" value="center" checked> Tại
+                            trung tâm</label>
+                        <label><input type="radio" id="radio-home" name="sampleType" value="home"> Thu mẫu tại
+                            nhà</label>
+                        <label><input type="radio" id="radio-self" name="sampleType" value="self"> Tự thu và gửi
+                            mẫu</label>
                     </div>
                 </div>
 
                 <!-- 🔵 Trung tâm -->
                <div id="section-center" class="conditional-section" style="display:block;">
                    <div class="form-row">
-                       <label for="appointmentTime">Chọn thời gian đặt lịch</label>
-                       <input type="datetime-local" id="appointmentTime" name="appointmentTime">
+                       <label for="appointment-time">Chọn thời gian đặt lịch</label>
+                       <input type="datetime-local" id="appointment-time" name="appointment-time">
                    </div>
 
                     <div class="form-row">
@@ -80,8 +97,8 @@
                     </div>
 
                     <div class="form-row">
-                    <label for="sampleType">Mẫu</label>
-                    <select id="sampleType" name="sampleType">
+                    <label for="sample-type-select">Mẫu</label>
+                    <select id="sample-type-select" name="sample-type">
                         <option value="">-Vui lòng chọn-</option>
                         <option value="mong-tay">Móng tay</option>
                         <option value="toc">Tóc</option>
@@ -90,23 +107,23 @@
                     </div>
 
                     <div class="form-row">
-                    <label for="relationship">Mối quan hệ</label>
-                    <select id="relationship" name="relationship">
-                        <option value="">-Vui lòng chọn-</option>
-                        <option value="cha-con">Cha - Con</option>
-                        <option value="me-con">Mẹ - Con</option>
-                        <option value="ong-chau">Ông - Cháu</option>
-                        <option value="anh-em">Anh - Em</option>
-                    </select>
+                        <label for="relationship">Mối quan hệ</label>
+                        <select id="relationship" name="relationship">
+                            <option value="">-Vui lòng chọn-</option>
+                            <option value="cha-con">Cha - Con</option>
+                            <option value="me-con">Mẹ - Con</option>
+                            <option value="ong-chau">Ông - Cháu</option>
+                            <option value="anh-em">Anh - Em</option>
+                        </select>
                     </div>
 
                     <div class="form-row">
-                    <label for="doctor">Chọn bác sĩ</label>
-                    <select id="doctor" name="doctor">
-                        <option value="">-Vui lòng chọn-</option>
-                        <option value="bs-thanvanky">Thân Văn Kỳ</option>
-                        <option value="bs-nguyenvana">Nguyễn Văn A</option>
-                    </select>
+                        <label for="doctor">Chọn bác sĩ</label>
+                        <select id="doctor" name="doctor">
+                            <option value="">-Vui lòng chọn-</option>
+                            <option value="bs-thanvanky">Thân Văn Kỳ</option>
+                            <option value="bs-nguyenvana">Nguyễn Văn A</option>
+                        </select>
                     </div>
                 </div>
 
@@ -118,8 +135,8 @@
                     </div>
 
                     <div class="form-row">
-                    <label for="sampleType">Mẫu</label>
-                    <select id="sampleType" name="sampleType">
+                    <label for="sample-type-select">Mẫu</label>
+                    <select id="sample-type-select" name="sample-type">
                         <option value="">-Vui lòng chọn-</option>
                         <option value="mong-tay">Móng tay</option>
                         <option value="toc">Tóc</option>
@@ -128,27 +145,27 @@
                     </div>
 
                     <div class="form-row">
-                    <label for="relationship">Mối quan hệ</label>
-                    <select id="relationship" name="relationship">
-                        <option value="">-Vui lòng chọn-</option>
-                        <option value="cha-con">Cha - Con</option>
-                        <option value="me-con">Mẹ - Con</option>
-                        <option value="ong-chau">Ông - Cháu</option>
-                        <option value="anh-em">Anh - Em</option>
-                    </select>
+                        <label for="relationship">Mối quan hệ</label>
+                        <select id="relationship" name="relationship">
+                            <option value="">-Vui lòng chọn-</option>
+                            <option value="cha-con">Cha - Con</option>
+                            <option value="me-con">Mẹ - Con</option>
+                            <option value="ong-chau">Ông - Cháu</option>
+                            <option value="anh-em">Anh - Em</option>
+                        </select>
                     </div>
 
                     <div class="form-row">
-                        <label for="addressNote">Ghi chú địa chỉ cụ thể</label>
-                        <textarea id="addressNote" name="addressNote" rows="3" placeholder="Ví dụ: Số nhà, tầng, tên khu..."></textarea>
+                        <label for="note-home">Ghi chú địa chỉ cụ thể</label>
+                        <textarea id="note-home" name="note-home" rows="3" placeholder="Ví dụ: Số nhà, tầng, tên khu..."></textarea>
                     </div>
                 </div>
 
                 <!-- 🟣 Tự thu -->
                 <div id="section-self" class="conditional-section" style="display:none;">
                     <div class="form-row">
-                    <label for="sampleType">Mẫu</label>
-                    <select id="sampleType" name="sampleType">
+                    <label for="sample-type-select">Mẫu</label>
+                    <select id="sample-type-select" name="sample-type">
                         <option value="">-Vui lòng chọn-</option>
                         <option value="mong-tay">Móng tay</option>
                         <option value="toc">Tóc</option>
@@ -157,14 +174,14 @@
                     </div>
 
                     <div class="form-row">
-                    <label for="relationship">Mối quan hệ</label>
-                    <select id="relationship" name="relationship">
-                        <option value="">-Vui lòng chọn-</option>
-                        <option value="cha-con">Cha - Con</option>
-                        <option value="me-con">Mẹ - Con</option>
-                        <option value="ong-chau">Ông - Cháu</option>
-                        <option value="anh-em">Anh - Em</option>
-                    </select>
+                        <label for="relationship">Mối quan hệ</label>
+                        <select id="relationship" name="relationship">
+                            <option value="">-Vui lòng chọn-</option>
+                            <option value="cha-con">Cha - Con</option>
+                            <option value="me-con">Mẹ - Con</option>
+                            <option value="ong-chau">Ông - Cháu</option>
+                            <option value="anh-em">Anh - Em</option>
+                        </select>
                     </div>
 
                     <div class="form-row">
@@ -172,8 +189,8 @@
                         <strong>123 Đường Xét Nghiệm, Quận 1, TP.HCM</strong>
                     </div>
                     <div class="form-row">
-                        <label for="sendNote">Ghi chú thêm (nếu có)</label>
-                        <textarea id="sendNote" name="sendNote" rows="3" placeholder="Ghi chú cách gửi mẫu, số theo dõi..."></textarea>
+                        <label for="note-self">Ghi chú thêm (nếu có)</label>
+                        <textarea id="note-self" name="note-self" rows="3" placeholder="Ghi chú cách gửi mẫu, số theo dõi..."></textarea>
                     </div>
                 </div>
 
@@ -182,13 +199,15 @@
                     <button type="submit" class="submit-btn">Gửi yêu cầu</button>
                 </div>
 
-                <p class="disclaimer">“Mọi thông tin đầu vào đều được chúng tôi mã hóa để đảm bảo tính bảo mật tốt nhất cho mọi người”</p>
+                <p class="disclaimer">“Mọi thông tin đầu vào đều được chúng tôi mã hóa để đảm bảo tính bảo mật tốt nhất
+                    cho mọi người”</p>
             </form>
         </div>
     </main>
 
     <div th:replace="common/footer :: footer"></div>
-    
+
     <script src="/js/Lienhe.js"></script>
 </body>
+
 </html>
