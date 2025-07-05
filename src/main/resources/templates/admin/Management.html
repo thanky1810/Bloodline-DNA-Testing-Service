@@ -1,27 +1,26 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GenFamily Admin</title>
-  <link rel="stylesheet" href="Admin.css">
-    <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+  <title>GenFamily Admin - Quản lý hồ sơ</title>
+  <link rel="stylesheet" href="/css/Admin.css">
+  <link rel="shortcut icon" href="/images/logo.jpg" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
   <div class="sidebar" id="sidebar">
     <div class="logo-container">
-      <img src="logo.jpg" alt="Logo" class="logo" />
+      <img src="/images/logo.jpg" alt="Logo" class="logo" />
       <span class="brand-name">GenFamily</span>
     </div>
     <ul class="nav-list">
-      <li><a href="Dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
-      <li><a href="Management.html"><i class="fas fa-folder-open"></i> Quản lý hồ sơ</a></li>
-      <li><a href="History.html"><i class="fas fa-file-alt"></i> Lịch sử xét nghiệm</a></li>
+      <li><a href="/admin/Dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+      <li><a href="/admin/Management"><i class="fas fa-folder-open"></i> Quản lý hồ sơ</a></li>
+      <li><a href="/admin/History"><i class="fas fa-file-alt"></i> Lịch sử xét nghiệm</a></li>
     </ul>
   </div>
-
   <div class="main">
     <div class="topbar">
       <div class="menu-toggle" onclick="toggleSidebar()">
@@ -33,50 +32,40 @@
         <i class="fas fa-user"></i> Admin
       </div>
     </div>
+    <div class="record-management">
+      <h2>QUẢN LÝ HỒ SƠ KHÁCH HÀNG</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Mã hồ sơ</th>
+              <th>Họ và tên</th>
+              <th>SĐT</th>
+              <th>Email</th>
+              <th>Địa chỉ</th>
+              <th>Loại mẫu</th>
+              <th>Thời gian</th>
+              <th>Bác sĩ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="appointment : ${centerAppointments}">
+              <td th:text="${appointment.id}">1</td>
+              <td th:text="${appointment.name}">Nguyễn Văn A</td>
+              <td th:text="${appointment.phone}">0123456789</td>
+              <td th:text="${appointment.email}">a@gmail.com</td>
+              <td th:text="${appointment.address}">Hà Nội</td>
+              <td th:text="${appointment.sampleType}">Máu</td>
+              <td th:text="${appointment.appointmentTime}">2024-01-01</td>
+              <td th:text="${appointment.doctor}">Bác sĩ B</td>
+            </tr>
+            <!-- Có thể thêm các bảng khác nếu muốn -->
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-
-<div class="record-management">
-  <h2>QUẢN LÝ HỒ SƠ KHÁCH HÀNG</h2>
-  <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <th>Mã hồ sơ</th>
-          <th>Họ và tên</th>
-          <th>SĐT</th>
-          <th>Email</th>
-          <th>Địa chỉ</th>
-          <th>Loại xét nghiệm</th>
-          <th>Thời gian đặt lịch</th>
-          <th>Ghi chú</th>
-          <th>Trạng thái</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Dòng mẫu để trống, bạn sẽ thêm dữ liệu động sau -->
-        <tr>
-          <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-        </tr>
-        <tr>
-          <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-        </tr>
-        <tr>
-          <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-        </tr>
-        <!-- Thêm nhiều hàng nếu cần -->
-      </tbody>
-    </table>
-  </div>
-  <div class="center-btn">
-    <button class="edit-button">Chỉnh sửa</button>
-  </div>
-</div>
-
- 
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="Admin.js"></script>
+  <script src="/js/Admin.js"></script>
 </body>
+
 </html>
