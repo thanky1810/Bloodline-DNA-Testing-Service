@@ -1,11 +1,9 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GenFamily Admin</title>
+  <title>GenFamily Admin - Dashboard</title>
   <link rel="stylesheet" href="/css/Admin.css">
   <link rel="shortcut icon" href="/images/logo.jpg" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,12 +16,11 @@
       <span class="brand-name">GenFamily</span>
     </div>
     <ul class="nav-list">
-      <li><a href="Dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
-      <li><a href="Management.html"><i class="fas fa-folder-open"></i> Quản lý hồ sơ</a></li>
-      <li><a href="History.html"><i class="fas fa-file-alt"></i> Lịch sử xét nghiệm</a></li>
+      <li><a href="/admin/Dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+      <li><a href="/admin/Management"><i class="fas fa-folder-open"></i> Quản lý hồ sơ</a></li>
+      <li><a href="/admin/History"><i class="fas fa-file-alt"></i> Lịch sử xét nghiệm</a></li>
     </ul>
   </div>
-
   <div class="main">
     <div class="topbar">
       <div class="menu-toggle" onclick="toggleSidebar()">
@@ -35,59 +32,55 @@
         <i class="fas fa-user"></i> Admin
       </div>
     </div>
-    <!-- Nội dung chính ở đây -->
+    <section class="dashboard-section">
+      <div class="dashboard-compact">
+        <div class="compact-card">
+          <i class="fas fa-users blue"></i>
+          <div>
+            <h3 th:text="${totalCustomers}">0</h3>
+            <p>Khách hàng</p>
+          </div>
+        </div>
+        <div class="compact-card">
+          <i class="fas fa-vial green"></i>
+          <div>
+            <h3 th:text="${totalTests}">0</h3>
+            <p>Xét nghiệm</p>
+          </div>
+        </div>
+        <div class="compact-card">
+          <i class="fas fa-dollar-sign orange"></i>
+          <div>
+            <h3 th:text="${totalRevenue}">0.0M+</h3>
+            <p>Doanh thu</p>
+          </div>
+        </div>
+        <div class="compact-card">
+          <i class="fas fa-file-alt gold"></i>
+          <div>
+            <h3 th:text="${totalRecords}">0</h3>
+            <p>Hồ sơ</p>
+          </div>
+        </div>
+      </div>
+      <div class="charts">
+        <div class="chart-box">
+          <h3>Doanh thu theo tháng</h3>
+          <canvas id="revenueChart"></canvas>
+        </div>
+        <div class="chart-box">
+          <h3>Đánh giá khách hàng</h3>
+          <canvas id="ratingChart"></canvas>
+        </div>
+      </div>
+    </section>
   </div>
-
-
-  <!-- Thống kê số liệu -->
-  <section class="dashboard-section">
-    <div class="dashboard-compact">
-      <div class="compact-card">
-        <i class="fas fa-user blue"></i>
-        <div>
-          <h3>87</h3>
-          <p>Khách hàng</p>
-        </div>
-      </div>
-      <div class="compact-card">
-        <i class="fas fa-chart-line green"></i>
-        <div>
-          <h3>42</h3>
-          <p>Xét nghiệm</p>
-        </div>
-      </div>
-      <div class="compact-card">
-        <i class="fas fa-signal orange"></i>
-        <div>
-          <h3>15M+</h3>
-          <p>Doanh thu</p>
-        </div>
-      </div>
-      <div class="compact-card">
-        <i class="fas fa-clipboard-check gold"></i>
-        <div>
-          <h3>87</h3>
-          <p>Hồ sơ</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Biểu đồ -->
-    <div class="charts">
-      <div class="chart-box">
-        <h3>Doanh thu</h3>
-        <canvas id="revenueChart"></canvas>
-      </div>
-
-      <div class="chart-box">
-        <h3>Đánh giá của khách hàng</h3>
-        <canvas id="ratingChart"></canvas>
-      </div>
-    </div>
-  </section>
-
-
-
+  <script th:inline="javascript">
+    /*<![CDATA[*/
+    window.revenueData = [[${ revenueData }]];
+    window.ratingData = [[${ ratingData }]];
+    /*]]>*/
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="/js/Admin.js"></script>
 </body>

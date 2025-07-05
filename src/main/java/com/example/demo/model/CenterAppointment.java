@@ -12,7 +12,8 @@ public class CenterAppointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
+    private Double price;
     private String name;
     private String phone;
     private String address;
@@ -22,7 +23,10 @@ public class CenterAppointment {
     private String sampleType;
     private String relationship;
     private String doctor;
-
+    
+    public Long getId() {
+        return id;
+    }
     // Getters and Setters
     public String getName() {
         return name;
@@ -30,6 +34,14 @@ public class CenterAppointment {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Double getPrice() {
+        return price;
+    }
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+    
     public String getPhone() {
         return phone;
     }
