@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenFamily</title>
+    <link rel="stylesheet" href="/css/All_Sum.css">
+
+    <!-- Thêm Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="shortcut icon" href="/images/logo.jpg" type="image/x-icon">
+</head>
+
+<body>
+    <div th:replace="common/header :: header"></div>
+
+    <div id="popupOverlay" class="popup-overlay" th:if="${message}">
+        <div class="popup">
+            <div class="popup-content" th:classappend="${messageType == 'error'} ? ' error'">
+                <span class="close-btn" onclick="closePopup()">×</span>
+                <h2 th:text="${messageType == 'error'} ? 'Lỗi' : 'Thông báo'"></h2>
+                <p th:text="${message}"></p>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="header"></div>
+        <!-- Về Chúng Tôi -->
+        <div class="exp1-section">
+            <h1>LIÊN HỆ</h1>
+            <h1>ĐẶT LỊCH XÉT NGHIỆM ADN</h1>
+        </div>
+
+        <div class="sample-section">
+            <p>Quý khách hàng vui lòng để lại thông tin và lời nhắn, bộ phận tư vấn sẽ liên hệ lại ngay sau khi nhận
+                được thông tin. Trân trọng cảm ơn quý khách hàng đã gửi thông tin!!</p>
+        </div>
+
+        <div class="booking-form">
+            <h2>LIÊN HỆ ĐẶT LỊCH XÉT NGHIỆM</h2>
+            <p>Quý khách hàng vui lòng điền đầy đủ thông tin</p>
+
+
+
+            <form action="/center/submitForm" method="post">
+
+                <!-- Thông tin chung -->
+                <div class="form-row">
+                    <label for="name">Họ và tên</label>
+                    <input type="text" id="name" name="fullName" placeholder="Nhập họ và tên" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="phone">Số điện thoại</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="address">Địa chỉ</label>
+                    <input type="text" id="address" name="address" placeholder="Nhập địa chỉ" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Nhập email" required>
+                </div>
+
+                <!-- Hình thức thu mẫu -->
+                <div class="form-row1">
+                    <label>Chọn hình thức thu mẫu</label>
+                    <div class="radio-buttons">
+                        <label><input type="radio" id="radio-center" name="sampleType" value="center" checked> Tại
+                            trung tâm</label>
+                        <label><input type="radio" id="radio-home" name="sampleType" value="home"> Thu mẫu tại
+                            nhà</label>
+                        <label><input type="radio" id="radio-self" name="sampleType" value="self"> Tự thu và gửi
+                            mẫu</label>
+                    </div>
+                </div>
+
+                <!-- 🔵 Trung tâm -->
+                <div id="section-center" class="conditional-section" style="display:block;">
+                    <div class="form-row">
+                        <label for="appointment-time">Chọn thời gian đặt lịch</label>
+                        <input type="datetime-local" id="appointment-time" name="appointmentTime">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="location">Chọn địa điểm xét nghiệm</label>
+                        <select id="location" name="location">
+                            <option value="">-Vui lòng chọn-</option>
+                            <option value="clinic1">Phòng khám A</option>
+                            <option value="clinic2">Phòng khám B</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="sample-type-select">Mẫu</label>
+                        <select id="sample-type-select" name="sample-type">
+                            <option value="">-Vui lòng chọn-</option>
+                            <option value="mong-tay">Móng tay</option>
+                            <option value="toc">Tóc</option>
+                            <option value="mau">Máu</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="relationship">Mối quan hệ</label>
+                        <select id="relationship" name="relationship">
+                            <option value="">-Vui lòng chọn-</option>
+                            <option value="cha-con">Cha - Con</option>
+                            <option value="me-con">Mẹ - Con</option>
+                            <option value="ong-chau">Ông - Cháu</option>
+                            <option value="anh-em">Anh - Em</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="doctor">Chọn bác sĩ</label>
+                        <select id="doctor" name="doctor">
+                            <option value="">-Vui lòng chọn-</option>
+                            <option value="bs-thanvanky">Thân Văn Kỳ</option>
+                            <option value="bs-nguyenvana">Nguyễn Văn A</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 🟢 Tại nhà -->
+                <div id="section-home" class="conditional-section" style="display:none;">
+                    <div class="form-row">
+                        <label for="sampleTime">Chọn thời gian lấy mẫu tại nhà</label>
+                        <input type="datetime-local" id="sampleTime" name="sampleTime">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="sample-type-select">Mẫu</label>
+                        <select id="sample-type-select" name="sample-type">
+                            <option value="">-Vui lòng chọn-</option>
+                            <option value="mong-tay">Móng tay</option>
+                            <option value="toc">Tóc</option>
+                            <option value="mau">Máu</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="relationship">Mối quan hệ</label>
+                        <select id="relationship" name="relationship">
+                            <option value="">-Vui lòng chọn-</option>
+                            <option value="cha-con">Cha - Con</option>
+                            <option value="me-con">Mẹ - Con</option>
+                            <option value="ong-chau">Ông - Cháu</option>
+                            <option value="anh-em">Anh - Em</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="note-home">Ghi chú địa chỉ cụ thể</label>
+                        <textarea id="note-home" name="note-home" rows="3"
+                            placeholder="Ví dụ: Số nhà, tầng, tên khu..."></textarea>
+                    </div>
+                </div>
+
+                <!-- 🟣 Tự thu -->
+                <div id="section-self" class="conditional-section" style="display:none;">
+                    <div class="form-row">
+                        <label for="sample-type-select">Mẫu</label>
+                        <select id="sample-type-select" name="sample-type">
+                            <option value="">-Vui lòng chọn-</option>
+                            <option value="mong-tay">Móng tay</option>
+                            <option value="toc">Tóc</option>
+                            <option value="mau">Máu</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="relationship">Mối quan hệ</label>
+                        <select id="relationship" name="relationship">
+                            <option value="">-Vui lòng chọn-</option>
+                            <option value="cha-con">Cha - Con</option>
+                            <option value="me-con">Mẹ - Con</option>
+                            <option value="ong-chau">Ông - Cháu</option>
+                            <option value="anh-em">Anh - Em</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <p>Bạn sẽ được gửi kit thu mẫu đến địa chỉ đã nhập. Vui lòng gửi mẫu về:</p>
+                        <strong>123 Đường Xét Nghiệm, Quận 1, TP.HCM</strong>
+                    </div>
+                    <div class="form-row">
+                        <label for="note-self">Ghi chú thêm (nếu có)</label>
+                        <textarea id="note-self" name="note-self" rows="3"
+                            placeholder="Ghi chú cách gửi mẫu, số theo dõi..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Nút gửi -->
+                <div class="form-row">
+                    <button type="submit" class="submit-btn">Gửi yêu cầu</button>
+                </div>
+
+                <p class="disclaimer">“Mọi thông tin đầu vào đều được chúng tôi mã hóa để đảm bảo tính bảo mật tốt nhất
+                    cho mọi người”</p>
+            </form>
+        </div>
+    </main>
+
+    <div th:replace="common/footer :: footer"></div>
+
+    <script src="/js/Lienhe.js"></script>
+</body>
+
+</html>
