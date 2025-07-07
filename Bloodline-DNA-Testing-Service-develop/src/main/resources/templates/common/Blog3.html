@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenFamily</title>
+    <link rel="stylesheet" href="/css/All_Sum.css">
+
+    <!-- Thêm Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="shortcut icon" href="/images/logo.jpg" type="image/x-icon">
+</head>
+
+<body>
+
+    <!-- Include header -->
+    <div th:replace="common/header :: header"></div>
+
+    <main>
+        <div class="header"></div>
+        <!-- Về Chúng Tôi -->
+        <div class="exp1-section">
+            <h1>XÉT NGHIỆM ADN THAI NHI</h1>
+            <h1>LỢI ÍCH, RỦI RO & NHỮNG LƯU Ý QUAN TRỌNG</h1>
+        </div>
+
+        <div class="sample-section">
+            <p>Xét nghiệm ADN thai nhi giúp xác định huyết thống và phát hiện dị tật bẩm sinh. Tìm hiểu các phương pháp, lợi ích, rủi ro và chi phí xét nghiệm ngay!</p>
+            <h3 class="sub-title">Xét nghiệm ADN thai nhi là gì?</h3>
+            <p>Xét nghiệm ADN thai nhi là phương pháp phân tích ADN của thai nhi để xác định mối quan hệ huyết thống (cha con) hoặc phát hiện các bất thường di truyền. Xét nghiệm này có thể được thực hiện trong thời kỳ mang thai, giúp cha mẹ có những quyết định quan trọng liên quan đến sức khỏe của con.</p>
+            <div class="image-block">
+                <img src="/images/hinh32.jpg" alt="hinh32">
+            </div>
+
+            <h3 class="sub-title">Các phương pháp xét nghiệm ADN thai nhi</h3>   
+            <p><strong>Xét nghiệm ADN trước sinh không xâm lấn (NIPT)</strong></p>
+            <p>Đây là phương pháp an toàn nhất, chỉ cần lấy mẫu máu của mẹ để phân tích ADN của thai nhi.</p>
+            <ul>
+                <li>Ưu điểm:</li>
+                <ol>
+                    <li>Độ an toàn cao, không gây rủi ro cho thai nhi.</li>
+                    <li>Độ chính xác lên đến 99%.</li>
+                    <li>Có thể phát hiện các hội chứng Down, Edwards, Patau và một số bất thường nhiễm sắc thể khác.</li>
+                </ol>
+                <li>Nhược điểm: Chi phí cao hơn các phương pháp xâm lấn.</li>
+                <li>Thời điểm thực hiện: Từ tuần thứ 8 của thai kỳ.</li>
+            </ul>
+
+            <p><strong>Chọc ối</strong></p>
+            <p>Bác sĩ sẽ dùng kim chọc vào túi ối để lấy mẫu nước ối chứa tế bào của thai nhi.</p>
+            <ul>
+                <li>Ưu điểm: Độ chính xác cao, có thể phát hiện nhiều loại dị tật.</li>
+                <li>Nhược điểm:</li>
+                <ol>
+                    <li>Có nguy cơ gây sảy thai (khoảng 1/300 – 1/500).</li>
+                    <li>Có thể gây nhiễm trùng ối.</li>
+                </ol>
+                <li>Thời điểm thực hiện: Từ tuần thứ 15-20 của thai kỳ.</li>
+            </ul>
+
+            <p><strong>Sinh thiết gai nhau (CVS)</strong></p>
+            <p>Bác sĩ sẽ lấy mẫu gai nhau (phần nhau thai) để phân tích ADN.</p>
+            <ul>
+                <li>Ưu điểm: Có thể thực hiện sớm hơn chọc ối, giúp cha mẹ có thời gian chuẩn bị tốt hơn.</li>
+                <li>Nhược điểm:</li>
+                <ol>
+                    <li>Nguy cơ sảy thai cao hơn chọc ối (khoảng 1/100).</li>
+                    <li>Có thể gây dị tật ở trẻ nếu thực hiện quá sớm.</li>
+                </ol>
+                <li>Thời điểm thực hiện: Từ tuần thứ 10-13 của thai kỳ.</li>
+            </ul>
+
+            <p><strong>Lợi ích của xét nghiệm ADN thai nhi</strong></p>
+            <p>Xác định huyết thống cha con: Giải đáp những nghi ngờ về mối quan hệ cha con.</p>
+            <p>Phát hiện sớm các dị tật bẩm sinh (Hội chứng Down,…) và bệnh di truyền: Giúp cha mẹ có những quyết định kịp thời về việc chăm sóc và điều trị cho con.</p>
+            <p>Giảm bớt sự lo lắng khi mang thai: Mang lại sự an tâm cho cha mẹ về sức khỏe của con.</p><br>
+
+            <p><strong>Rủi ro và hạn chế</strong></p>
+            <ol>
+                <li>Rủi ro tiềm ẩn của các phương pháp xâm lấn (chọc ối, sinh thiết gai nhau).</li>
+                <li>Chi phí xét nghiệm: Tương đối cao, đặc biệt là NIPT.</li>
+                <li>Độ chính xác và các yếu tố ảnh hưởng đến kết quả.</li>
+                <li>Kết quả xét nghiệm có thể gây ra những vấn đề về tâm lý cho cha mẹ.</li>
+            </ol>
+
+            <p><strong>Những lưu ý quan trọng</strong></p>
+            <p>Thời điểm thực hiện xét nghiệm: Chọn thời điểm phù hợp với từng phương pháp.</p>
+            <p>Lựa chọn cơ sở y tế uy tín: Đảm bảo chất lượng xét nghiệm và dịch vụ tư vấn.</p>
+            <p>Tư vấn di truyền trước và sau khi xét nghiệm: Hiểu rõ về kết quả và các quyết định cần đưa ra.</p><br>
+
+            <p><strong>Chi phí xét nghiệm ADN thai nhi</strong></p>
+            <p>Chi phí xét nghiệm ADN thai nhi dao động tùy thuộc vào phương pháp xét nghiệm và cơ sở y tế.</p>
+            <p>Xét nghiệm NIPT có chi phí cao hơn các xét nghiệm xâm lấn.</p>
+            <ul>
+                <li>NIPT: Khoảng 10-20 triệu đồng.</li>
+                <li>Chọc ối và sinh thiết gai nhau: Khoảng 5-10 triệu đồng.</li>
+            </ul>
+            <p>Các xét nghiệm xâm lấn có chi phí thấp hơn, nhưng có rủi ro cao hơn.</p><br>
+
+            <p><strong>*Giải đáp thắc mắc thường gặp</strong></p>
+            <p>Hỏi: Xét nghiệm ADN thai nhi có chính xác không?</p>
+            <p>Đáp: Các phương pháp xét nghiệm ADN thai nhi có độ chính xác cao, đặc biệt là NIPT.</p>
+            <p>Hỏi: Chi phí xét nghiệm là bao nhiêu?</p>
+            <p>Đáp: Chi phí dao động từ vài triệu đến vài chục triệu đồng.</p>
+            <p>Hỏi: Xét nghiệm có ảnh hưởng đến thai nhi không?</p>
+            <p>Đáp: NIPT là phương pháp không xâm lấn nên không ảnh hưởng đến thai nhi. Các phương pháp xâm lấn có thể gây rủi ro.</p>
+            <p>Hỏi: Kết quả xét nghiệm có ảnh hưởng đến quyết định giữ thai hay không?</p>
+            <p>Đáp: Điều này hoàn toàn phụ thuộc vào quyết định của cha mẹ. Cần được tư vấn kỹ lưỡng bởi bác sĩ và chuyên gia di truyền.</p><br>
+
+            <p><strong>Lựa chọn cơ sở xét nghiệm ADN uy tín</strong></p>
+            <p>GenFamily là một trung tâm xét nghiệm ADN uy tín tại Việt Nam, cung cấp đa dạng các dịch vụ xét nghiệm ADN, bao gồm cả xét nghiệm ADN thai nhi.</p>
+            <p>Để biết thêm thông tin chi tiết và được tư vấn cụ thể về dịch vụ xét nghiệm ADN thai nhi, bạn nên liên hệ trực tiếp với GenFamily qua website hoặc hotline 08.777.999.44 của trung tâm.</p>
+            <div class="image-block">
+                <img src="/images/hinh8.jpg" alt="hinh8">
+            </div>
+            <h3 class="sub-title">Lời kết</h3>
+            <p>Xét nghiệm ADN thai nhi là một công cụ hữu ích giúp cha mẹ có thêm thông tin về sức khỏe của con. Tuy nhiên, cần cân nhắc kỹ lưỡng các lợi ích và rủi ro trước khi quyết định thực hiện xét nghiệm. Hãy tìm hiểu kỹ thông tin và được tư vấn bởi các chuyên gia để có những quyết định đúng đắn nhất.</p>
+        </div>
+
+        <!-- CTA Button 2 -->
+        <div id="nut-dv">
+            <div class="nd">
+                <h2>LIÊN HỆ CHÚNG TÔI TẠI ĐÂY</h2>
+                <a href="/common/Lienhe.html"><button class="nut">Liên hệ</button></a>
+            </div>
+        </div>
+
+    </main>
+
+    <div th:replace="common/footer :: footer"></div>
+
+    <script src="/js/All_Sum.js"></script>
+</body>
+</html>
