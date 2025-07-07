@@ -1,0 +1,56 @@
+<!-- header.html -->
+<th:block th:fragment="header">
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-left">
+            <a href="#" class="social-icon"><i class="fas fa-phone-alt"></i> </a>
+            <span class="phone-number">0902 520 536</span>
+        </div>
+
+        <!-- Log (Login & Register) with Icons and Avatar -->
+        <div class="Logn">
+            <div class="user-info" id="user-info" style="display: none;">
+                <span class="user-name" id="username-display">John Doe</span> <!-- Username -->
+                <a href="#" id="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+
+            <div class="auth-links" id="auth-links">
+                <a href="/admin/Signup_Login" class="login-link"><i class="fas fa-sign-in-alt"></i> Log In</a> |
+                <a href="/admin/Signup_Login" class="register-link"><i class="fas fa-user-plus"></i> Log Up</a>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <!-- Sử dụng Font Awesome cho các icon mạng xã hội -->
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <div class="header-center">
+            <a href="/">
+                <img src="/images/logo.jpg" alt="GenFamily Logo" class="logo-img">
+            </a>
+            <span class="logo">GenFamily</span>
+        </div>
+
+        <!-- Hamburger Menu Button -->
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="nav-list" id="navList">
+            <li><a href="/">Trang Chủ</a></li>
+            <li><a href="/common/Gioithieu">Giới Thiệu</a></li>
+            <li><a href="/common/Dichvu">Dịch Vụ</a></li>
+            <li><a href="/common/Huongdan">Hướng Dẫn</a></li>
+            <li><a href="/common/Lienhe">Liên hệ</a></li>
+            <li><a href="/common/Blog">Blog</a></li>
+            <li><a href="/common/Datlich">Đặt Lịch</a></li>
+        </ul>
+    </div>
+</th:block>
