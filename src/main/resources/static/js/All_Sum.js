@@ -34,7 +34,7 @@ function enableFeedbackInput() {
 }
 
 // Khi nhập thì kiểm tra để bật/tắt nút gửi
-document.getElementById('feedback-content').addEventListener('input', function() {
+document.getElementById('feedback-content').addEventListener('input', function () {
     document.getElementById('submit-btn').disabled = !this.value.trim();
 });
 
@@ -54,3 +54,16 @@ function submitFeedback() {
 }
 
 renderFeedbacks();
+
+document.addEventListener('DOMContentLoaded', function () {
+    const loginBtn = document.getElementById('loginBtn');
+    const loginModal = document.getElementById('loginModal');
+    const closeModal = document.getElementById('closeModal');
+    if (loginBtn && loginModal && closeModal) {
+        loginBtn.onclick = () => loginModal.classList.add('show');
+        closeModal.onclick = () => loginModal.classList.remove('show');
+        window.onclick = (e) => {
+            if (e.target === loginModal) loginModal.classList.remove('show');
+        };
+    }
+});
