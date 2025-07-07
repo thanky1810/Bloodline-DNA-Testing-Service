@@ -29,4 +29,10 @@ public class LoginController {
             return "common/home"; // hoặc trả về trang hiện tại
         }
     }
+
+    @PostMapping("/logout")
+        public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
+    }
 }

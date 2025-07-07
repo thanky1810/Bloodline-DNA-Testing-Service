@@ -29,7 +29,16 @@
       <div class="right">
         <i class="fas fa-bell"></i>
         <i class="fas fa-envelope"></i>
-        <i class="fas fa-user"></i> Admin
+        <div class="admin-dropdown" id="adminDropdown">
+          <span id="adminName" style="cursor:pointer;">
+            <i class="fas fa-user"></i> Admin
+          </span>
+          <div class="dropdown-content" id="dropdownContent">
+            <form method="post" action="/logout" style="margin:0;">
+              <button type="submit" class="logout-btn">Đăng xuất</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
     <section class="dashboard-section">

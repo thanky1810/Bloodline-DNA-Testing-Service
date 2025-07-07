@@ -50,3 +50,19 @@ if (ratingChartElem) {
         }
     });
 }
+
+
+// Thêm vào cuối file Admin.js hoặc trong <script> cuối trang
+document.addEventListener('DOMContentLoaded', function () {
+    const adminName = document.getElementById('adminName');
+    const adminDropdown = document.getElementById('adminDropdown');
+    if (adminName && adminDropdown) {
+        adminName.onclick = function (e) {
+            e.stopPropagation();
+            adminDropdown.classList.toggle('show');
+        };
+        document.addEventListener('click', function () {
+            adminDropdown.classList.remove('show');
+        });
+    }
+});
