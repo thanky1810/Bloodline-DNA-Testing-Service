@@ -66,3 +66,22 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const select = document.getElementById("type");
+    const centerTable = document.getElementById("centerTable");
+    const homeTable = document.getElementById("homeTable");
+    const selfTable = document.getElementById("selfTable");
+
+    function showTable(type) {
+      centerTable.style.display = type === "center" ? "block" : "none";
+      homeTable.style.display = type === "home" ? "block" : "none";
+      selfTable.style.display = type === "self" ? "block" : "none";
+    }
+
+    // Ban đầu chọn là "center"
+    showTable("center");
+
+    select.addEventListener("change", function () {
+      showTable(this.value);
+    });
+  });

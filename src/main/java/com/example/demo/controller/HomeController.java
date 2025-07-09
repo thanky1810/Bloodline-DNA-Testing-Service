@@ -1,11 +1,12 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.model.CenterAppointment;
 import com.example.demo.model.HomeAppointment;
@@ -78,6 +79,10 @@ public class HomeController {
     public String blog4Page() {
         return "common/Blog4";
     }
+    @GetMapping("/common/TracuuForm")
+    public String showTraCuuForm() {
+        return "common/TracuuForm";
+    }
 
     @GetMapping("/admin/Dashboard")
     public String dashboardPage(Model model) {
@@ -123,7 +128,7 @@ public class HomeController {
     }
 
     @GetMapping("/admin/Management")
-    public String managementPage(Model model) {
+    public String managementPage(@RequestParam(required = false) String type, Model model) {
         List<CenterAppointment> centerAppointments = centerRepository.findAll();
         List<HomeAppointment> homeAppointments = homeRepository.findAll();
         List<SelfCollectAppointment> selfCollectAppointments = selfCollectRepository.findAll();
@@ -131,6 +136,8 @@ public class HomeController {
         model.addAttribute("centerAppointments", centerAppointments);
         model.addAttribute("homeAppointments", homeAppointments);
         model.addAttribute("selfCollectAppointments", selfCollectAppointments);
+        
+        model.addAttribute("type", type);
 
         return "admin/Management";
     }
