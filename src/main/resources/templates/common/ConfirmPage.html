@@ -1,0 +1,46 @@
+<!-- src/main/resources/templates/ConfirmPage.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Xác nhận hồ sơ</title>
+  <link rel="stylesheet" href="/css/Confirm.css">
+</head>
+<body>
+  <h2>Xác nhận hồ sơ</h2>
+
+  <div th:if="${message}" style="color: green; margin-bottom: 15px;">
+    <strong th:text="${message}"></strong>
+  </div>
+
+    <form method="post" th:action="@{/common/ConfirmResult}">
+        <input type="hidden" name="appointmentId" th:value="${appointment.id}" />
+
+        <label>Họ tên:</label>
+        <input type="text" th:value="${appointment.name}" disabled />
+        
+        <label>SĐT:</label>
+        <input type="text" th:value="${appointment.phone}" disabled />
+        
+        <label>Email:</label>
+        <input type="text" th:value="${appointment.email}" disabled />
+        
+        <label>Địa chỉ:</label>
+        <input type="text" th:value="${appointment.address}" disabled />
+        
+        <label>Loại xét nghiệm:</label>
+        <input type="text" th:value="${appointment.relationship}" disabled />
+
+        <label>Loại mẫu:</label>
+        <input type="text" th:value="${appointment.sampleType}" disabled />
+
+        <label>Kết quả xét nghiệm:</label>
+        <select name="result" required>
+            <option value="Có quan hệ">Có quan hệ</option>
+            <option value="Không có quan hệ">Không có quan hệ</option>
+        </select>
+
+        <button type="submit">Xác nhận kết quả</button>
+    </form>
+</body>
+</html>

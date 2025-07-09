@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <title>GenFamily Admin - Quản lý hồ sơ</title>
@@ -21,6 +20,7 @@
       <li><a href="/admin/History"><i class="fas fa-file-alt"></i> Lịch sử xét nghiệm</a></li>
     </ul>
   </div>
+
   <div class="main">
     <div class="topbar">
       <div class="menu-toggle" onclick="toggleSidebar()">
@@ -41,9 +41,19 @@
         </div>
       </div>
     </div>
+
     <div class="record-management">
       <h2>QUẢN LÝ HỒ SƠ KHÁCH HÀNG</h2>
-      <div class="table-container">
+
+      <label for="type">Chọn loại hồ sơ:</label>
+      <select name="type" id="type">
+        <option value="center" selected>Trung tâm</option>
+        <option value="home">Tại nhà</option>
+        <option value="self">Tự lấy mẫu</option>
+      </select>
+
+      <!-- CENTER TABLE -->
+      <div class="table-container" id="centerTable">
         <table>
           <thead>
             <tr>
@@ -52,29 +62,119 @@
               <th>SĐT</th>
               <th>Email</th>
               <th>Địa chỉ</th>
+              <th>Địa chỉ xét nghiệm</th>
               <th>Loại mẫu</th>
+              <th>Quan hệ</th>
               <th>Thời gian</th>
-              <th>Bác sĩ</th>
+              <th>Trạng thái</th>
+              <th>Xác nhận</th>
             </tr>
           </thead>
-          <tbody>
-            <tr th:each="appointment : ${centerAppointments}">
+          <tbody th:each="appointment : ${centerAppointments}">
+            <tr>
+              <td th:text="${appointment.id}">1</td>
+              <td th:text="${appointment.name}">Nguyễn Văn A</td>
+              <td th:text="${appointment.phone}">0123456789</td>
+              <td th:text="${appointment.email}">a@gmail.com</td>
+              <td th:text="${appointment.address}">Hà Nội</td>
+              <td th:text="${appointment.location}">Trung tâm Y tế</td>
+              <td th:text="${appointment.sampleType}">Máu</td>
+              <td th:text="${appointment.relationship}">Quan hệ</td>
+              <td th:text="${appointment.appointmentTime}">2024-01-01</td>
+              <td th:text="${appointment.status}">Chưa xác nhận</td>
+              <td>
+                <form method="get" th:action="@{/common/ConfirmPage}">
+                  <input type="hidden" name="appointmentId" th:value="${appointment.id}" />
+                  <button type="submit" class="confirm-btn">Xác nhận</button>
+                </form>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- HOME TABLE -->
+      <div class="table-container" id="homeTable" style="display:none;">
+        <table>
+          <thead>
+            <tr>
+              <th>Mã hồ sơ</th>
+              <th>Họ và tên</th>
+              <th>SĐT</th>
+              <th>Email</th>
+              <th>Địa chỉ</th>
+              <th>Thời gian lấy mẫu</th>
+              <th>Mẫu</th>
+              <th>Quan hệ</th>
+              <th>Địa chỉ cụ thể</th>
+              <th>Trạng thái</th>
+              <th>Xác nhận</th>
+            </tr>
+          </thead>
+          <tbody th:each="appointment : ${homeAppointments}">
+            <tr>
+              <td th:text="${appointment.id}">1</td>
+              <td th:text="${appointment.name}">Nguyễn Văn A</td>
+              <td th:text="${appointment.phone}">0123456789</td>
+              <td th:text="${appointment.email}">a@gmail.com</td>
+              <td th:text="${appointment.address}">Hà Nội</td>
+              <td th:text="${appointment.sampleTime}">2024-01-01</td>
+              <td th:text="${appointment.sampleType}">Máu</td>
+              <td th:text="${appointment.relationship}">Quan hệ</td>
+              <td th:text="${appointment.addressNote}">Địa chỉ cụ thể</td>
+              <td th:text="${appointment.status}">Chưa xác nhận</td>
+              <td>
+                <form method="get" th:action="@{/common/ConfirmPage}">
+                  <input type="hidden" name="appointmentId" th:value="${appointment.id}" />
+                  <button type="submit" class="confirm-btn">Xác nhận</button>
+                </form>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- SELF TABLE -->
+      <div class="table-container" id="selfTable" style="display:none;">
+        <table>
+          <thead>
+            <tr>
+              <th>Mã hồ sơ</th>
+              <th>Họ và tên</th>
+              <th>SĐT</th>
+              <th>Email</th>
+              <th>Địa chỉ</th>
+              <th>Mẫu</th>
+              <th>Quan hệ</th>
+              <th>Địa chỉ cụ thể</th>
+              <th>Trạng thái</th>
+              <th>Xác nhận</th>
+            </tr>
+          </thead>
+          <tbody th:each="appointment : ${selfCollectAppointments}">
+            <tr>
               <td th:text="${appointment.id}">1</td>
               <td th:text="${appointment.name}">Nguyễn Văn A</td>
               <td th:text="${appointment.phone}">0123456789</td>
               <td th:text="${appointment.email}">a@gmail.com</td>
               <td th:text="${appointment.address}">Hà Nội</td>
               <td th:text="${appointment.sampleType}">Máu</td>
-              <td th:text="${appointment.appointmentTime}">2024-01-01</td>
-              <td th:text="${appointment.doctor}">Bác sĩ B</td>
+              <td th:text="${appointment.relationship}">Quan hệ</td>
+              <td th:text="${appointment.sendNote}">Địa chỉ cụ thể</td>
+              <td th:text="${appointment.status}">Chưa xác nhận</td>
+              <td>
+                <form method="get" th:action="@{/common/ConfirmPage}">
+                  <input type="hidden" name="appointmentId" th:value="${appointment.id}" />
+                  <button type="submit" class="confirm-btn">Xác nhận</button>
+                </form>
+              </td>
             </tr>
-            <!-- Có thể thêm các bảng khác nếu muốn -->
           </tbody>
         </table>
       </div>
     </div>
   </div>
+
   <script src="/js/Admin.js"></script>
 </body>
-
 </html>

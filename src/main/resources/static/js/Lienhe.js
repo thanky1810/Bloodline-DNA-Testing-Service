@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const radios = document.querySelectorAll("input[name='sample-type']");
 
     function updateAction() {
-        const selected = document.querySelector("input[name='sample-type']:checked").value;
+        const selected = document.querySelector("input[name='Type']:checked").value;
         if (selected === "center") form.action = "/center/submitForm";
         else if (selected === "home") form.action = "/home/submitForm";
         else if (selected === "self") form.action = "/self/submitForm";
@@ -52,3 +52,18 @@ window.onload = function () {
         setTimeout(() => overlay.style.display = "none", 5000);
     }
 }
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("mainForm");
+
+    form.addEventListener("submit", function (e) {
+        const type = document.querySelector('input[name="Type"]:checked').value;
+
+        if (type === "center") {
+            form.action = "/center/submitForm";
+        } else if (type === "home") {
+            form.action = "/home/submitForm";
+        } else if (type === "self") {
+            form.action = "/self/submitForm";
+        }
+    });
+});

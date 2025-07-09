@@ -44,12 +44,13 @@
 
 
 
-            <form action="/center/submitForm" method="post">
+            <form id="mainForm" method="post">
+
 
                 <!-- Thông tin chung -->
                 <div class="form-row">
                     <label for="name">Họ và tên</label>
-                    <input type="text" id="name" name="fullName" placeholder="Nhập họ và tên" required>
+                    <input type="text" id="name" name="name" placeholder="Nhập họ và tên" required>
                 </div>
 
                 <div class="form-row">
@@ -71,11 +72,11 @@
                 <div class="form-row1">
                     <label>Chọn hình thức thu mẫu</label>
                     <div class="radio-buttons">
-                        <label><input type="radio" id="radio-center" name="sampleType" value="center" checked> Tại
+                        <label><input type="radio" id="radio-center" name="Type" value="center" checked> Tại
                             trung tâm</label>
-                        <label><input type="radio" id="radio-home" name="sampleType" value="home"> Thu mẫu tại
+                        <label><input type="radio" id="radio-home" name="Type" value="home"> Thu mẫu tại
                             nhà</label>
-                        <label><input type="radio" id="radio-self" name="sampleType" value="self"> Tự thu và gửi
+                        <label><input type="radio" id="radio-self" name="Type" value="self"> Tự thu và gửi
                             mẫu</label>
                     </div>
                 </div>
@@ -83,8 +84,8 @@
                 <!-- 🔵 Trung tâm -->
                 <div id="section-center" class="conditional-section" style="display:block;">
                     <div class="form-row">
-                        <label for="appointment-time">Chọn thời gian đặt lịch</label>
-                        <input type="datetime-local" id="appointment-time" name="appointmentTime">
+                        <label for="appointmentTime">Chọn thời gian đặt lịch</label>
+                        <input type="datetime-local" id="appointmentTime" name="appointmentTime">
                     </div>
 
                     <div class="form-row">
@@ -97,8 +98,8 @@
                     </div>
 
                     <div class="form-row">
-                        <label for="sample-type-select">Mẫu</label>
-                        <select id="sample-type-select" name="sample-type">
+                        <label for="sampleType">Mẫu</label>
+                        <select id="sampleType" name="sampleType">
                             <option value="">-Vui lòng chọn-</option>
                             <option value="mong-tay">Móng tay</option>
                             <option value="toc">Tóc</option>
@@ -135,8 +136,8 @@
                     </div>
 
                     <div class="form-row">
-                        <label for="sample-type-select">Mẫu</label>
-                        <select id="sample-type-select" name="sample-type">
+                        <label for="sampleType">Mẫu</label>
+                        <select id="sampleType" name="sampleType">
                             <option value="">-Vui lòng chọn-</option>
                             <option value="mong-tay">Móng tay</option>
                             <option value="toc">Tóc</option>
@@ -156,8 +157,8 @@
                     </div>
 
                     <div class="form-row">
-                        <label for="note-home">Ghi chú địa chỉ cụ thể</label>
-                        <textarea id="note-home" name="note-home" rows="3"
+                        <label for="addressNote">Ghi chú địa chỉ cụ thể</label>
+                        <textarea id="addressNote" name="addressNote" rows="3"
                             placeholder="Ví dụ: Số nhà, tầng, tên khu..."></textarea>
                     </div>
                 </div>
@@ -165,8 +166,8 @@
                 <!-- 🟣 Tự thu -->
                 <div id="section-self" class="conditional-section" style="display:none;">
                     <div class="form-row">
-                        <label for="sample-type-select">Mẫu</label>
-                        <select id="sample-type-select" name="sample-type">
+                        <label for="sampleType">Mẫu</label>
+                        <select id="sampleType" name="sampleType">
                             <option value="">-Vui lòng chọn-</option>
                             <option value="mong-tay">Móng tay</option>
                             <option value="toc">Tóc</option>
